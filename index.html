@@ -100,7 +100,28 @@
     <a href="#">PC Games</a>
     <a href="#">Contact</a>
   </nav>
+<div class="search-box">
+  <input type="text" id="gameSearch" placeholder="🔎 Search for a game...">
+</div>
 
+<script>
+  const searchInput = document.getElementById("gameSearch");
+
+  searchInput.addEventListener("keyup", function() {
+    const search = searchInput.value.toLowerCase();
+    const games = document.querySelectorAll(".game");
+
+    games.forEach(function(game) {
+      const name = game.textContent.toLowerCase();
+
+      if (name.includes(search)) {
+        game.style.display = "block";
+      } else {
+        game.style.display = "none";
+      }
+    });
+  });
+</script>
   <section class="hero">
     <h2>Welcome to TORE GAMES</h2>
     <p>Discover great games and download them from official and legally authorized sources.</p>
